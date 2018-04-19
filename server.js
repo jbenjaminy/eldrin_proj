@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const firebase = require('firebase');
 
+const config = require('./firebase/config');
 const register = require('./firebase/functions/register');
 const login = require('./firebase/functions/login');
 const addRestaurant = require('./firebase/functions/add-restaurant');
@@ -11,6 +13,16 @@ const app = express();
 const jsonParser = bodyParser.json();
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+
+    console.log('firebase.initializeApp():', firebase.apps.length);
+} else {
+    firebase.app();
+
+    console.log('firebase.app():', firebase.apps.length);
+}
 
 app.use(express.static('build'));
 app.use(jsonParser);

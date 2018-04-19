@@ -1,5 +1,5 @@
 .DS_Store
-config.js
+pg/config.js
 node_modules
 build
 *.log
