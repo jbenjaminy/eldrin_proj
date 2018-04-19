@@ -1,4 +1,4 @@
-import { GET_LOCATION } from '../actions/types';
+import { FETCH_LOCATION } from '../actions/types';
 
 const INITIAL_STATE = {
     coords: {
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case GET_LOCATION:
+        case FETCH_LOCATION:
             return action.data;
         default:
             return state;

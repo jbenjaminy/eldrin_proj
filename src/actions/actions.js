@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-fetch';
 import {
     FETCH_RESTAURANTS_SUCCESS,
-    FETCH_RESTAURANT_DETAILS
+    FETCH_RESTAURANT_DETAILS,
+    FETCH_LOCATION
 } from './types';
 
 export const fetchRestaurants = () => dispatch => (
@@ -27,3 +28,24 @@ export const fetchRestaurantDetails = () => dispatch => (
         });
     }).catch(err => console.log(err))
 );
+
+export const fetchLocation = () => {
+  const geolocation = navigator.geolocation;
+
+  const location = new Promise((resolve, reject) => {
+    if (!geolocation) {
+      reject(new Error('Not Supported'));
+    }
+
+    geolocation.getCurrentPosition((position) => {
+      resolve(position);
+    }, () => {
+      reject (new Error('Permission denied'));
+    });
+  });
+
+  return {
+    type: FETCH_LOCATION,
+    data: location
+  }
+};

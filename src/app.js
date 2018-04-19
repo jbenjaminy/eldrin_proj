@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
+import {
+    Route,
+    Router,
+    IndexRoute,
+    browserHistory
+} from 'react-router';
 import store from './store';
 import Landing from './components/landing';
 import RestaurantResults from './components/restaurant-results';
@@ -11,13 +16,7 @@ import RestaurantDetails from './components/restaurant-details';
 const App = (props) => {
     return (
         <div>
-            <nav>
-                <H1></H1>
-            </nav>
-            <hr/>
-            <div>
-                {props.children}
-            </div>
+            {props.children}
         </div>
     );
 };

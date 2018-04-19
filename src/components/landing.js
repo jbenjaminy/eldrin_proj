@@ -1,24 +1,23 @@
 /* eslint max-len: 0 */
+/* eslint arrow-body-style: 0 */
 import React, { Component } from 'react';
 
-// import {geolocated} from 'react-geolocated';
-
-import Input from 'input';
+import { connect } from 'react-redux';
+import Input from './input';
+import * as actions from '../actions';
 
 class Landing extends Component {
 	render() {
 		return (
-		<div>
-			
-			<Input />
-		</div>
+			<div className='landing'>
+				<div className='modal'>
+					<Input />
+				</div>
+			</div>
 		);
 	}
 }
 
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000,
-})(Landing);
+export default connect((state) => {
+    return { state };
+}, actions)(Landing);
