@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/restaurants', (req, res) => {
+app.post('/restaurants', jsonParser, (req, res) => {
     const coordinates = req.body;
 
     getRestaurants(coordinates)
@@ -27,12 +27,13 @@ app.get('/restaurants', (req, res) => {
                 console.error(error);
                 return res.sendStatus(500);
             }
+            console.log(restaurants);
 
             res.json(restaurants);
         });
 });
 
-app.post('/add-restaurant', (req, res) => {
+app.post('/add-restaurant', jsonParser, (req, res) => {
     const restaurantDetails = req.body;
 
     createRestaurant(restaurantDetails)

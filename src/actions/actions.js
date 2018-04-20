@@ -4,12 +4,13 @@
 import fetch from 'isomorphic-fetch';
 import {
     FETCH_RESTAURANTS_SUCCESS,
-    FETCH_RESTAURANT_DETAILS,
+    ADD_RESTAURANT_SUCCESS,
     // FETCH_LOCATION
 } from './types';
 
 export const fetchRestaurants = (coordinates) => dispatch => (
 	fetch('/restaurants', {
+        method: "POST",
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
@@ -26,13 +27,20 @@ export const fetchRestaurants = (coordinates) => dispatch => (
     }).catch(err => console.log(err))
 );
 
-export const fetchRestaurantDetails = () => dispatch => (
-	fetch('/restaurants').then(res => {
+export const addRestaurant = (details) => dispatch => (
+    fetch('/add-restaurant', {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(details)
+    }).then(res => {
 		if (!res.ok) throw (new Error(res.statusText));
 		return res.json();
 	}).then(data => {
 		dispatch({
-            type: FETCH_RESTAURANT_DETAILS,
+            type: ADD_RESTAURANT_SUCCESS,
             data
         });
     }).catch(err => console.log(err))
