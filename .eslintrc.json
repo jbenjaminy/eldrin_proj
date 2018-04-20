@@ -14,7 +14,8 @@
     "setImmediate": false,
     "setInterval": false,
     "setTimeout": false,
-    "document": true
+    "document": true,
+    "arrow-body-style": false
   },
   "extends": "rallycoding"
 }

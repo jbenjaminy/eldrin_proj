@@ -10,8 +10,8 @@ import {
 } from 'react-router';
 import store from './store';
 import Landing from './components/landing';
-import RestaurantResults from './components/restaurant-results';
-import RestaurantDetails from './components/restaurant-details';
+// import RestaurantResults from './components/restaurant-results';
+// import RestaurantDetails from './components/restaurant-details';
 
 const App = (props) => {
     return (
@@ -23,9 +23,9 @@ const App = (props) => {
 
 const routes = (
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path="/" component={Landing}>
+                            {/*
             <Route path="home">
-                <IndexRoute component={Landing} />
 
                 <Route path="/restaurants">
                     <IndexRoute component={RestaurantResults} />
@@ -35,6 +35,7 @@ const routes = (
                     </Route>
                 </Route>
             </Route>
+                            */}
         </Route>
     </Router>
 );

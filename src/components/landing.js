@@ -10,9 +10,8 @@ class Landing extends Component {
 	render() {
 		return (
 			<div className='landing'>
-				<div className='modal'>
-					<Input />
-				</div>
+				<h1>Paciteria</h1>
+				<Input />	
 			</div>
 		);
 	}

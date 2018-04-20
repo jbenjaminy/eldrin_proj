@@ -1,28 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const firebase = require('firebase');
 
-const config = require('./firebase/config');
-const register = require('./firebase/functions/register');
-const login = require('./firebase/functions/login');
-const addRestaurant = require('./firebase/functions/add-restaurant');
-const findRestaurants = require('./firebase/functions/find-restaurants');
-const getDetails = require('./firebase/functions/find-restaurants');
+const addRestaurant = require('./pg/functions/add-restaurant');
+const findRestaurants = require('./pg/functions/find-restaurants');
+const getDetails = require('./pg/functions/find-restaurants');
 
 const app = express();
 const jsonParser = bodyParser.json();
 const HOST = process.env.HOST;
 const PORT = process.env.PORT || 8080;
-
-if (!firebase.apps.length) {
-    firebase.initializeApp(config);
-
-    console.log('firebase.initializeApp():', firebase.apps.length);
-} else {
-    firebase.app();
-
-    console.log('firebase.app():', firebase.apps.length);
-}
 
 app.use(express.static('build'));
 app.use(jsonParser);
@@ -33,35 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/register', (req, res) => {
-    const credentials = req.body;
-    register(credentials)
-        .then((error, user) => {
-
-            if (error) {
-                console.error(error);
-                return res.sendStatus(500);
-            }
-
-            res.json({ user });
-        });
-});
-
-app.get('/login', (req, res) => {
-    const credentials = req.body;
-    login(credentials)
-        .then((error, user) => {
-            if (error) {
-                console.error(error);
-                return res.sendStatus(500);
-            }
-
-            res.json({ user });
-        });
-});
-
-app.get('/add-restaurant', (req, res) => {
-
+app.post('/add-restaurant', (req, res) => {
     const restaurantDetails = req.body;
 
     addRestaurant(restaurantDetails)
@@ -76,8 +34,9 @@ app.get('/add-restaurant', (req, res) => {
 });
 
 app.get('/find-restaurants', (req, res) => {
+    const location = req.body;
 
-    findRestaurants(credentials)
+    findRestaurants(location)
         .then((error, restaurants) => {
             if (error) {
                 console.error(error);
@@ -90,6 +49,7 @@ app.get('/find-restaurants', (req, res) => {
 
 app.get('/get-details', (req, res) => {
     const restaurantId = req.body;
+    
     getDetails(restaurantId)
         .then((error, details) => {
             if (error) {

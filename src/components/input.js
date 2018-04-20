@@ -1,24 +1,33 @@
 /* eslint max-len: 0 */
 import React, { Component } from 'react';
 
-// import {geolocated} from 'react-geolocated';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-import GeolocationButton from './geolocation-button';
+// // import {geolocated} from 'react-geolocated';
+//
+// import GeolocationButton from './geolocation-button';
+// 			// <GeolocationButton />
 
-class Landing extends Component {
+class Input extends Component {
 	render() {
 		return (
-		<div>
-			<input></input>
-			<GeolocationButton />
-		</div>
+				<input
+					className='input'
+					type='text'
+					placeholder='Enter Location to Search Nearby Paciterias'
+					onChange={this.props.addInput}
+				/>
 		);
 	}
 }
 
-export default ({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000,
-})(Landing);
+// export default ({
+//   positionOptions: {
+//     enableHighAccuracy: false,
+//   },
+//   userDecisionTimeout: 5000,
+// })(Landing);
+export default connect((state) => {
+    return { state };
+}, actions)(Input);

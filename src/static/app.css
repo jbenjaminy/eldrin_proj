@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400|Libre+Baskerville);
+/*----- APP STYLES -----*/
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Alegreya Sans';
+    font-size: 18px;
+}
+
+#app {
+    height: 100%;
+}
+
+h1 {
+    color: #EC9787;
+    font-size: 85px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    line-height: 3;
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px #944743;
+}
+
+/*----- LANDING PAGE STYLES -----*/
+.landing {
+    /* path to background image */
+    background-image: url('paciteria_background.jpg');
+    /* background image: full-sized, centered and scaled appropriately  */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.modal {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: white;
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.input {
+    width: 350px;
+    padding: 25px;
+    margin: 0 auto;
+    text-align: center;
+    border: #ffffff 0px solid;
+    border-radius: 10px;
+    font-family: 'Alegreya Sans';
+    font-size: 20px;
+    background-color: #ffffff;
+    opacity: 0.9;
+    margin-top: 50px;
+}
