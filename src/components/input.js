@@ -5,36 +5,40 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-// // import {geolocated} from 'react-geolocated';
-//
-// import GeolocationButton from './geolocation-button';
-// 			// <GeolocationButton />
 class Input extends Component {
-	startSearch(coordinates) {
-		const { fetchRestaurants } = this.props;
+	constructor() {
+		super();
+		this.submitLocation = this.submitLocation.bind(this);
+	}
 
-		fetchRestaurants(coordinates);
+	submitLocation(event) {
+		event.preventDefault();
+
+		const { fetchRestaurants } = this.props;
+		const coordinates = this.location.value;
+		console.log('coordinates --> ', coordinates);
+		fetchRestaurants({ coordinates });
 	}
 
 	render() {
 		return (
-			<input
+			<div className='input-div'><input
 				className='input'
+				id='location-input'
 				type='text'
 				placeholder='Enter Location to Search Nearby Panciterias'
-				onChange={this.props.addInput}
-				onSubmit={this.startSearch.bind({ coordinates: {} })}
-			/>
+				ref={location => { this.location = location; }}
+				required
+			/><button
+				className='button'
+				type='button'
+				id='submit-location'
+				onClick={this.submitLocation}
+			><p className='fa fa-search fa-2x' /></button></div>
 		);
 	}
 }
 
-// export default ({
-//   positionOptions: {
-//     enableHighAccuracy: false,
-//   },
-//   userDecisionTimeout: 5000,
-// })(Landing);
 export default connect((state) => {
     return { state };
 }, actions)(Input);
