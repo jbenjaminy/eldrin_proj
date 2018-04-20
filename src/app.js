@@ -14,19 +14,23 @@ import Landing from './components/landing';
 // import RestaurantDetails from './components/restaurant-details';
 
 const App = (props) => {
+    let children = props.children;
+
+    if (props.children === null) {
+        children = <Landing />;
+    }
+
     return (
-        <div>
-            {props.children}
+        <div className='background'>
+            {children}
         </div>
     );
 };
 
 const routes = (
     <Router history={browserHistory}>
-        <Route path="/" component={Landing}>
-                            {/*
-            <Route path="home">
-
+        <Route path="/" component={App}>
+            {/*
                 <Route path="/restaurants">
                     <IndexRoute component={RestaurantResults} />
 
@@ -35,7 +39,7 @@ const routes = (
                     </Route>
                 </Route>
             </Route>
-                            */}
+                    */}
         </Route>
     </Router>
 );

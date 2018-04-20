@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const addRestaurant = require('./pg/functions/add-restaurant');
-const findRestaurants = require('./pg/functions/find-restaurants');
-const getDetails = require('./pg/functions/find-restaurants');
+const createRestaurant = require('./pg/functions/create-restaurant');
+const getRestaurants = require('./pg/functions/get-restaurants');
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -19,39 +18,25 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/add-restaurant', (req, res) => {
-    const restaurantDetails = req.body;
+app.get('/restaurants', (req, res) => {
+    const coordinates = req.body;
 
-    addRestaurant(restaurantDetails)
-        .then((details, error) => {
-            if (error) {
-                console.error(error);
-                return res.sendStatus(500);
-            }
-
-            res.json({ details });
-        });
-});
-
-app.get('/find-restaurants', (req, res) => {
-    const location = req.body;
-
-    findRestaurants(location)
+    getRestaurants(coordinates)
         .then((error, restaurants) => {
             if (error) {
                 console.error(error);
                 return res.sendStatus(500);
             }
 
-            res.json({ restaurants });
+            res.json(restaurants);
         });
 });
 
-app.get('/get-details', (req, res) => {
-    const restaurantId = req.body;
-    
-    getDetails(restaurantId)
-        .then((error, details) => {
+app.post('/add-restaurant', (req, res) => {
+    const restaurantDetails = req.body;
+
+    createRestaurant(restaurantDetails)
+        .then((details, error) => {
             if (error) {
                 console.error(error);
                 return res.sendStatus(500);

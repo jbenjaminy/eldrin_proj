@@ -9,7 +9,7 @@ import * as actions from '../actions';
 class Landing extends Component {
 	render() {
 		return (
-			<div className='landing'>
+			<div>
 				<h1>PancEATeria</h1>
 				<Input />
 			</div>
