@@ -1,7 +1,7 @@
 {
-  "name": "panciteria",
+  "name": "panc-eat-eria",
   "version": "0.0.1",
-  "description": "A restaurant finder, which filters results by distance from current location.",
+  "description": "Search for local panciteria shops, filtered by distance from your location.",
   "main": "server.js",
   "scripts": {
     "start": "npm run build && node server.js",
@@ -34,6 +34,7 @@
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
+    "pg": "^7.4.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.6",

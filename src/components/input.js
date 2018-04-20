@@ -15,7 +15,7 @@ class Input extends Component {
 				<input
 					className='input'
 					type='text'
-					placeholder='Enter Location to Search Nearby Paciterias'
+					placeholder='Enter Location to Search Nearby Panciterias'
 					onChange={this.props.addInput}
 				/>
 		);

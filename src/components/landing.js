@@ -10,8 +10,8 @@ class Landing extends Component {
 	render() {
 		return (
 			<div className='landing'>
-				<h1>Paciteria</h1>
-				<Input />	
+				<h1>PancEATeria</h1>
+				<Input />
 			</div>
 		);
 	}

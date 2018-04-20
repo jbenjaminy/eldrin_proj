@@ -1,6 +1,6 @@
-# Panciteria #
+# Panc-eat-eria #
 
- ***A restaurant finder, which filters results by distance from current location.***
+ ***Search for local panciteria shops, filtered by distance from your location.***
 
 ## Technologies ##
  * [Node.js](https://nodejs.org/en/) - A backend JavaScript runtime.
@@ -63,6 +63,7 @@ _or_
  ```
   $ createdb [DB_NAME]
  ```
+_the db name is specified in the connection file (pg/connect.js) as 'panc-eat-eria'_
 
 5. Connect model tables (schema.sql) db:
  ```

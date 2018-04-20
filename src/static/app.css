@@ -31,7 +31,8 @@ h1 {
 /*----- LANDING PAGE STYLES -----*/
 .landing {
     /* path to background image */
-    background-image: url('paciteria_background.jpg');
+    /* background-image: url('paciteria_background.jpg'); */
+    background-image: url('alt-image.jpg');
     /* background image: full-sized, centered and scaled appropriately  */
     height: 100%;
     background-position: center;
