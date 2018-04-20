@@ -18,6 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
+
 app.post('/restaurants', jsonParser, (req, res) => {
     const coordinates = req.body;
 

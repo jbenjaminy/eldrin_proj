@@ -1,4 +1,4 @@
-create table if not exists panciterias (
+create table if not exists restaurants (
 	id serial primary key,
 	name text not null unique,
     hours text,

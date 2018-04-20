@@ -63,7 +63,7 @@ _or_
  ```
   $ createdb [DB_NAME]
  ```
-_the db name is specified in the connection file (pg/connect.js) as 'panc-eat-eria'_
+_The db name is specified in the connection file (pg/connect.js) as 'pancit-shops.'_
 
 5. Connect model tables (schema.sql) db:
  ```

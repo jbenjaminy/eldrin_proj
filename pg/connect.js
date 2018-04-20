@@ -1,4 +1,4 @@
-let databaseUrl = process.env.DATABASE_URL || 'postgres://localhost:5432/panc-eat-eria';
+let databaseUrl = process.env.DATABASE_URL || 'postgres://localhost:5432/pancit-shops';
 if (process.env.NODE_ENV === 'production') {
     databaseUrl += '?ssl=true';
 }

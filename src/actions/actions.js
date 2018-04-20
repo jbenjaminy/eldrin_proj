@@ -1,6 +1,5 @@
 /* eslint quote-props: 0 */
 /* eslint quotes: 0 */
-
 import fetch from 'isomorphic-fetch';
 import {
     FETCH_RESTAURANTS_SUCCESS,
@@ -9,6 +8,9 @@ import {
 } from './types';
 
 export const fetchRestaurants = (coordinates) => dispatch => (
+    /** We use a POST request here, even though we're really just fetching and
+    would typically be a 'GET' request, so that we can utilize request.body
+    to send our geocoordinates in the request. */
 	fetch('/restaurants', {
         method: "POST",
         headers: {
