@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import LocationReducer from './location-reducer';
-import RestaurantReducer from './restaurant-reducer';
+
+import GeolocationCoordinatesReducer from './reducers__geolocation_coordinates';
+import RestaurantResultsReducer from './reducers__restaurant_results';
+// import PhilippinoCitiesReducer from './reducers__phillippino_cities';
 
 export default combineReducers({
-    location: LocationReducer,
-    restaurants: RestaurantReducer
+    coordinates: GeolocationCoordinatesReducer,
+    results: RestaurantResultsReducer
+    // cities: PhilippinoCitiesReducer
 });
