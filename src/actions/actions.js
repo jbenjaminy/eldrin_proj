@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import {
     FETCH_RESTAURANTS_SUCCESS,
     ADD_RESTAURANT_SUCCESS,
+    MATCH_SUGGESTIONS,
     // FETCH_LOCATION
 } from './types';
 
@@ -13,10 +14,6 @@ export const fetchRestaurants = (coordinates) => dispatch => (
     to send our geocoordinates in the request. */
 	fetch('/restaurants', {
         method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
         body: JSON.stringify(coordinates)
     }).then(res => {
 		if (!res.ok) throw (new Error(res.statusText));
@@ -32,10 +29,6 @@ export const fetchRestaurants = (coordinates) => dispatch => (
 export const addRestaurant = (details) => dispatch => (
     fetch('/add-restaurant', {
         method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
         body: JSON.stringify(details)
     }).then(res => {
 		if (!res.ok) throw (new Error(res.statusText));
@@ -47,6 +40,15 @@ export const addRestaurant = (details) => dispatch => (
         });
     }).catch(err => console.log(err))
 );
+
+
+export const matchSuggestions = (data) => dispatch => (
+	dispatch({
+        type: MATCH_SUGGESTIONS,
+        data
+    })
+);
+
 //
 // export const fetchLocation = () => {
 //   const geolocation = navigator.geolocation;

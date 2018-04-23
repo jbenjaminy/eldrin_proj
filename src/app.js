@@ -9,7 +9,7 @@ import {
     browserHistory
 } from 'react-router';
 import store from './store';
-import Input from './components/input';
+import Landing from './components/landing';
 // import RestaurantResults from './components/restaurant-results';
 // import RestaurantDetails from './components/restaurant-details';
 
@@ -17,7 +17,7 @@ const App = (props) => {
     let children = props.children;
 
     if (props.children === null) {
-        children = <Input />;
+        children = <Landing />;
     }
 
     return (

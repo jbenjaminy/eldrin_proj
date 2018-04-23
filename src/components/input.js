@@ -1,54 +1,27 @@
-/* eslint max-len: 0 */
-/* eslint arrow-body-style: 0 */
-import React, { Component } from 'react';
+import React from 'react';
 
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import Location from './location';
 
-class Input extends Component {
-	constructor() {
-		super();
-		this.submitLocation = this.submitLocation.bind(this);
-	}
+const Input = ({ output, inputChange }) => {
+    const locations = output.map((location, index) => (
+        <Location location={location} key={index} />
+    ));
 
-	submitLocation(event) {
-		event.preventDefault();
+    return (
+        <div className='input-wrapper'>
+            <input
+                type='text'
+                className='input'
+                id='location-input'
+                placeholder='Enter Location to Search Nearby Panciterias'
+                onChange={inputChange}
+                ref={location => { this.location = location; }}
+                required
+            />
 
-		const { fetchRestaurants } = this.props;
-		const coordinates = this.location.value;
-		console.log('coordinates --> ', coordinates);
-		fetchRestaurants({ coordinates });
-	}
-	// Google Distance Matrix
-	// https://developers.google.com/maps/documentation/distance-matrix/intro
+            <ul className='output'>{locations}</ul>
+        </div>
+    );
+};
 
-	render() {
-		return (
-			<div>
-				<div className='input-div'><input
-					className='input'
-					id='location-input'
-					type='text'
-					placeholder='Enter Location to Search Nearby Panciterias'
-					ref={location => { this.location = location; }}
-					required
-				/><button
-					className='button'
-					type='button'
-					id='submit-location'
-					onClick={this.submitLocation}
-				><p className='fa fa-search fa-2x' /></button></div>
-
-				<a className='current-location'>
-					<p className='current-location'>
-						Search for Panciterias Nearby Your Current Location.
-					</p>
-				</a>
-			</div>
-		);
-	}
-}
-
-export default connect((state) => {
-    return { state };
-}, actions)(Input);
+export default Input;
