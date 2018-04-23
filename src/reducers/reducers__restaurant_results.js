@@ -5,7 +5,7 @@ const INITIAL_STATE = [
         name: 'Jomar\'s Panciteria',
         description: '',
         pricing: '',
-        hours: '7:00am-7:00pm daily',
+        hours: '7:00am-7:00pm, daily',
         neighborhood: 'Centro 7',
         address: 'Gomez Street',
         city: 'Tuguegarao City',
