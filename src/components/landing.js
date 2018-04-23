@@ -15,9 +15,11 @@ class Landing extends Component {
 	}
 
 	onInputChange(event) {
-		const { cities, matchSuggestions } = this.props;
+		const { cities, matchSuggestions, updateInput } = this.props;
 		const value = event.target.value.toLowerCase();
 		let searchSuggestions;
+
+		updateInput(value);
 
 		if (value.length > 0) {
 			searchSuggestions = cities.filter(city => {
@@ -48,8 +50,7 @@ class Landing extends Component {
 	// https://developers.google.com/maps/documentation/distance-matrix/intro
 
 	render() {
-		const { suggestions } = this.props;
-		console.log('suggestions: ', suggestions);
+		const { suggestions, input } = this.props;
 
 		const locations = suggestions.map((location, index) => {
 			if (index < 5) {
@@ -61,16 +62,13 @@ class Landing extends Component {
 
 		return (
 			<div>
-				<button className='current-location'>
-					Search for Panciterias Nearby Your Current Location.
-				</button>
-
 				<div className='input-div'><input
 					type='text'
 					className='input'
 					id='location-input'
 					placeholder='Enter Location to Search Nearby Panciterias'
 					onChange={this.onInputChange}
+					value={input}
 					required
 				/><button
 					className='submit-button'
@@ -78,6 +76,11 @@ class Landing extends Component {
 					id='submit-location'
 					onClick={this.submitLocation}
 				><p className='fa fa-search fa-2x' /></button></div>
+
+				<button className='current-location'>
+					Use your current location
+				</button>
+
 				{ (locations.length) ?
 					<div className='modal location-modal'>
 						<ul className='location-output'>{locations}</ul>
@@ -88,6 +91,7 @@ class Landing extends Component {
 	}
 }
 
-export default connect(({ suggestions, cities }) => {
-	return { suggestions, cities };
+export default connect(({ app, cities }) => {
+	const { suggestions, input } = app;
+	return { suggestions, input, cities };
 }, actions)(Landing);

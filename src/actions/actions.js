@@ -5,6 +5,7 @@ import {
     FETCH_RESTAURANTS_SUCCESS,
     ADD_RESTAURANT_SUCCESS,
     MATCH_SUGGESTIONS,
+    UPDATE_INPUT
     // FETCH_LOCATION
 } from './types';
 
@@ -45,6 +46,13 @@ export const addRestaurant = (details) => dispatch => (
 export const matchSuggestions = (data) => dispatch => (
 	dispatch({
         type: MATCH_SUGGESTIONS,
+        data
+    })
+);
+
+export const updateInput = (data) => dispatch => (
+	dispatch({
+        type: UPDATE_INPUT,
         data
     })
 );

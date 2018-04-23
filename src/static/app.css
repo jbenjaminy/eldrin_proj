@@ -54,8 +54,8 @@ h1 {
 
 /*----- LANDING PAGE STYLES -----*/
 .input-div {
-    margin-top: 50px;
     height: 74px;
+    margin-top: 50px;
 }
 .input {
     width: 350px;
@@ -82,6 +82,10 @@ input:required {
     border-width: 0px;
 }
 
+.submit-button:hover {
+    background-color: darkgrey;
+}
+
 .location-output {
     padding: 0;
 }
@@ -101,8 +105,23 @@ input:required {
     outline: none;
 }
 
-.location-button:hover {
+.current-location {
+    font-style: italic;
+    padding: 0px;
+    margin-left: -270px;
+    border: none;
+    outline: none;
+    background: none;
+    font-weight: bold;
+    font-family: 'Alegreya Sans';
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 1px #944743;
+}
+
+.location-button:hover, .current-location:hover {
     color: #EC9787;
+    font-weight: bold;
 }
 
 .location-modal {

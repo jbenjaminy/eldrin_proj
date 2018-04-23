@@ -7,7 +7,9 @@ import * as actions from '../actions';
 
 class Location extends Component {
     populateInput(location) {
-        console.log('selectedLocation: ', location);
+        const { updateInput } = this.props;
+
+        updateInput(location);
     }
     render() {
         const { index, location } = this.props;
