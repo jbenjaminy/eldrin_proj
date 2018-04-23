@@ -8,14 +8,13 @@ const Input = ({ output, inputChange }) => {
     ));
 
     return (
-        <div className='input-wrapper'>
+        <div>
             <input
                 type='text'
                 className='input'
                 id='location-input'
                 placeholder='Enter Location to Search Nearby Panciterias'
                 onChange={inputChange}
-                ref={location => { this.location = location; }}
                 required
             />
 

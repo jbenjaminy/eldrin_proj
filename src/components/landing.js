@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import Input from './input';
+// import Input from './input';
+import Location from './location';
 
 class Landing extends Component {
 	constructor() {
 		super();
 		this.submitLocation = this.submitLocation.bind(this);
+		this.onInputChange = this.onInputChange.bind(this);
 	}
 
 	onInputChange(event) {
@@ -47,24 +49,40 @@ class Landing extends Component {
 
 	render() {
 		const { suggestions } = this.props;
+		console.log('suggestions: ', suggestions);
+
+		const locations = suggestions.map((location, index) => {
+			if (index < 5) {
+				return <Location location={location} key={index} />;
+			}
+
+			return null;
+		});
 
 		return (
 			<div>
-				<div className='input-div'><Input
-					addInput={this.onInputChange}
-					output={suggestions}
+				<button className='current-location'>
+					Search for Panciterias Nearby Your Current Location.
+				</button>
+
+				<div className='input-div'><input
+					type='text'
+					className='input'
+					id='location-input'
+					placeholder='Enter Location to Search Nearby Panciterias'
+					onChange={this.onInputChange}
+					required
 				/><button
-					className='button'
+					className='submit-button'
 					type='button'
 					id='submit-location'
 					onClick={this.submitLocation}
 				><p className='fa fa-search fa-2x' /></button></div>
-
-				<a className='current-location'>
-					<p className='current-location'>
-						Search for Panciterias Nearby Your Current Location.
-					</p>
-				</a>
+				{ (locations.length) ?
+					<div className='modal location-modal'>
+						<ul className='location-output'>{locations}</ul>
+					</div> : null
+				}
 			</div>
 		);
 	}

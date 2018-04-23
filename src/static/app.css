@@ -40,6 +40,18 @@ h1 {
     text-align: center;
 }
 
+.modal {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: white;
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+}
+
 /*----- LANDING PAGE STYLES -----*/
 .input-div {
     margin-top: 50px;
@@ -63,26 +75,41 @@ input:required {
     box-shadow: none;
 }
 
-.button {
+.submit-button {
     background-color: #EC9787;
     border-radius: 10px;
     margin-left: 10px;
     border-width: 0px;
 }
 
-/*----- RESULTS PAGE STYLES -----*/
-.modal {
-    width: 500px;
-    height: 400px;
-    margin: 0 auto;
-    background-color: white;
-    opacity: 0.9;
-    text-align: center;
-    border-radius: 10px;
-    position: relative;
-    top: 10px;
+.location-output {
+    padding: 0;
 }
 
+.location-item {
+    list-style-type: none;
+}
+
+.location-button {
+    padding: 0px;
+    margin: 10px;
+    font-family: 'Alegreya Sans';
+    font-size: 18px;
+    color: darkgrey;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.location-button:hover {
+    color: #EC9787;
+}
+
+.location-modal {
+    height: 210px;
+}
+
+/*----- RESULTS PAGE STYLES -----*/
 .fa {
     color: white;
     padding-left: 20px;

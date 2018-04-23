@@ -14,7 +14,7 @@ class Location extends Component {
 
         return (
             <li className='location-item' key={`location_${index}`} >
-                <button onClick={this.populateInput.bind(this, location)}>
+                <button className='location-button' onClick={this.populateInput.bind(this, location)}>
                     {location}
                 </button>
             </li>
