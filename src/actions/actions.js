@@ -10,16 +10,17 @@ import {
 } from './types';
 
 export const fetchRestaurants = (coordinates) => dispatch => (
-    /** We use a POST request here, even though we're really just fetching and
-    would typically be a 'GET' request, so that we can utilize request.body
-    to send our geocoordinates in the request. */
-	fetch('/restaurants', {
-        method: "POST",
-        body: JSON.stringify(coordinates)
+	fetch(`/restaurants/${coordinates.latitude}/${coordinates.longitude}`, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
     }).then(res => {
-		if (!res.ok) throw (new Error(res.statusText));
-		return res.json();
-	}).then(({ data }) => {
+            console.log('res --> ', res);
+            if (!res.ok) throw (new Error(res.statusText));
+            return res.json();
+    }).then(data => {
+        console.log('data --> ', data);
 		dispatch({
             type: FETCH_RESTAURANTS_SUCCESS,
             data

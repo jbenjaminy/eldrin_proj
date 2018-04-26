@@ -44,11 +44,10 @@ class Landing extends Component {
 		event.preventDefault();
 
 		const { fetchRestaurants } = this.props;
-		const coordinates = this.refs.location.value;
+		// const coordinates = this.refs.location.value;
+		const coordinates = { latitude: '17.613633', longitude: '121.730554' };
 
-		console.log('coordinates --> ', coordinates);
-
-		fetchRestaurants({ coordinates });
+		fetchRestaurants(coordinates);
 		browserHistory.push('/restaurants');
 	}
 	// Google Distance Matrix

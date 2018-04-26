@@ -1,8 +1,11 @@
+/* eslint arrow-body-style: 0 */
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const createRestaurant = require('./pg/functions/create-restaurant');
-const getRestaurants = require('./pg/functions/get-restaurants');
+const knex = require('./pg/connect');
+
+// const createRestaurant = require('./pg/functions/create-restaurant');
+// const getRestaurants = require('./pg/functions/get-restaurants');
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -19,34 +22,45 @@ app.use((req, res, next) => {
 });
 
 
-app.post('/restaurants', jsonParser, (req, res) => {
-    const coordinates = req.body;
+app.get('/restaurants/:latitude/:longitude', (req, res) => {
+    const latitude = req.params.latitude;
+    const longitude = req.params.longitude;
+    
+    console.log('coordinates, server.js --> ', latitude, longitude);
 
-    getRestaurants(coordinates)
-        .then((error, restaurants) => {
-            if (error) {
-                console.error(error);
-                return res.sendStatus(500);
-            }
-            console.log(restaurants);
+    knex.select()
+        .from('restaurants')
+        .then(restaurants => {
+            console.log('restaurants --> ', restaurants);
 
             res.json(restaurants);
+        })
+        .catch(err => {
+            console.log('err --> ', err);
+            res.sendStatus(500);
         });
+    // getRestaurants(coordinates)
+    //     .then(restaurants => {
+    //
+    //         console.log(restaurants);
+    //
+    //         return res.json({ restaurants });
+    //     });
 });
-
-app.post('/add-restaurant', jsonParser, (req, res) => {
-    const restaurantDetails = req.body;
-
-    createRestaurant(restaurantDetails)
-        .then((details, error) => {
-            if (error) {
-                console.error(error);
-                return res.sendStatus(500);
-            }
-
-            res.json({ details });
-        });
-});
+//
+// app.post('/add-restaurant', (req, res) => {
+//     const restaurantDetails = req.body;
+//
+//     createRestaurant(restaurantDetails)
+//         .then((details, error) => {
+//             if (error) {
+//                 console.error(error);
+//                 return res.sendStatus(500);
+//             }
+//
+//             res.json({ details });
+//         });
+// });
 
 function runServer() {
 	app.listen(PORT, HOST, err => {

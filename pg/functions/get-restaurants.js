@@ -1,16 +1,15 @@
 const knex = require('../connect');
 
 const getRestaurants = (coordinates) => {
-    const coords = JSON.parse(coordinates);
-    console.log(coords);
+    console.log(coordinates);
 
     return new Promise((resolve, reject) => {
         knex.select()
-            .from('panciterias')
+            .from('restaurants')
             .then(restaurants => {
-                resolve({ data: restaurants });
+                resolve(restaurants);
             })
-            .catch((err) => {
+            .catch(err => {
                 reject(err);
             });
     });
