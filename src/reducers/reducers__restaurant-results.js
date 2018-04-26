@@ -3,8 +3,6 @@ import { FETCH_RESTAURANTS_SUCCESS } from '../actions/types';
 const INITIAL_STATE = [
     {
         name: 'Jomar\'s Panciteria',
-        description: '',
-        pricing: '',
         hours: '7:00am-7:00pm, daily',
         neighborhood: 'Centro 7',
         address: 'Gomez Street',
@@ -12,12 +10,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.613633',
-        longitude: '121.730554'
+        longitude: '121.730554',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Triangle Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Ugac Highway',
         address: 'Luna Street',
@@ -25,12 +25,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.613431',
-        longitude: '121.716151'
+        longitude: '121.716151',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Jren’s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Centro 12',
         address: 'Diversion Road',
@@ -38,12 +40,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.62756',
-        longitude: '121.725764'
+        longitude: '121.725764',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Lamud Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Cataggaman Nuevo',
         address: 'Gunnacao Street',
@@ -51,12 +55,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.603727',
-        longitude: '121.712023'
+        longitude: '121.712023',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Ecl Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Larion Bajo',
         address: 'Pan-Philippine Highway',
@@ -64,12 +70,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.618783',
-        longitude: '121.757278'
+        longitude: '121.757278',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Natan’s Pancit Cabagan',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Pengue-Ruyu',
         address: 'Badaje Street',
@@ -77,12 +85,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.643314',
-        longitude: '121.738731'
+        longitude: '121.738731',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Liza’s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Annafunan West',
         address: 'Annafunan West',
@@ -90,12 +100,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.64447',
-        longitude: '121.718217'
+        longitude: '121.718217',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Eva’s Pansiteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Annafunan East',
         address: 'Aquino Street',
@@ -103,12 +115,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.646128',
-        longitude: '121.725276'
+        longitude: '121.725276',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'BLJ Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Annafunan East',
         address: 'Aquino Street',
@@ -116,12 +130,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.646128',
-        longitude: '121.724288'
+        longitude: '121.724288',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Macoy\'s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Sharon Village, Cataggaman Nuevo',
         address: 'Diciano Street',
@@ -129,12 +145,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.606681',
-        longitude: '121.712601'
+        longitude: '121.712601',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'New Life Restaurant and Pansiteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Pan-Philippine Highway',
         address: 'Pan-Philippine Highway',
@@ -142,12 +160,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.637219',
-        longitude: '121.76663'
+        longitude: '121.76663',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Longlife Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Tanza',
         address: 'Santol Street',
@@ -156,11 +176,13 @@ const INITIAL_STATE = [
         country: 'Philippines',
         latitude: '17.629121',
         longitude: '121.738519',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Fefang Pancitera',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Centro 5',
         address: 'Lecaros Street',
@@ -168,12 +190,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.609158',
-        longitude: '121.726185'
+        longitude: '121.726185',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Nang\'s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Ugac Sur',
         address: 'Lecaros Street',
@@ -181,12 +205,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.609011',
-        longitude: '121.717916'
+        longitude: '121.717916',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Cherry\'s Pansiteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Centro 5',
         address: 'Zamora Street',
@@ -194,12 +220,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.61022',
-        longitude: '121.725576'
+        longitude: '121.725576',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Gretchen\'s Noodle Haus',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Centro 5',
         address: 'Zamora Street',
@@ -207,12 +235,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.610029',
-        longitude: '121.725372'
+        longitude: '121.725372',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Billy Jack\'s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Buntun',
         address: 'Buntun Road',
@@ -220,12 +250,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.613585',
-        longitude: '121.699907'
+        longitude: '121.699907',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Lebron\'s Place',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Centro 4',
         address: 'Rizal Street',
@@ -233,12 +265,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.615229',
-        longitude: '121.729792'
+        longitude: '121.729792',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Santino\'s Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Caritan Centro',
         address: 'Baquiran Street',
@@ -246,12 +280,14 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.623958',
-        longitude: '121.724539'
+        longitude: '121.724539',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     },
     {
         name: 'Triple J Panciteria',
-        description: '',
-        pricing: '',
         hours: '',
         neighborhood: 'Ugac Norte',
         address: 'Mabini Street',
@@ -259,7 +295,11 @@ const INITIAL_STATE = [
         region: 'Cagayan',
         country: 'Philippines',
         latitude: '17.614191',
-        longitude: '121.724744'
+        longitude: '121.724744',
+        pricing: '',
+        phone: '',
+        website: '',
+        description: ''
     }
 ];
 

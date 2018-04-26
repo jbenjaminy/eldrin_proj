@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jbenjaminy/eldrin_proj.git"
+    "url": "git+"
   },
   "author": "",
   "license": "MIT",

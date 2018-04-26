@@ -7,13 +7,50 @@ import * as actions from '../actions';
 
 class RestaurantResults extends Component {
 	render() {
+		const { results } = this.props;
+		const renderedResults = results.map(result => {
+			const {
+				id,
+				name,
+				// hours,
+				// phone,
+				// website,
+				neighborhood,
+				address,
+				city,
+				region,
+				country,
+				// latitude,
+				// longitude,
+			} = result;
+
+			const distance = '';
+
+			return (
+				<div className='modal result-item'>
+					<img src={`${id}.jpg`} alt={`${name}`} className='result-image result-col' />
+
+					<div className='result-col'>
+						<h2>{name}</h2>
+						<p className='result-spec neighborhood'>{neighborhood}</p>
+						<p className='result-spec'>{address}</p>
+						<p className='result-spec'>{city}, {region}, {country}</p>
+					</div>
+
+					<div className='result-col'>
+						<h1 className='distance'>{distance} km</h1>
+					</div>
+				</div>
+			);
+		});
 		return (
-            <div className='modal'>
+            <div className='results-container'>
+				{renderedResults}
             </div>
 		);
 	}
 }
 
-export default connect(state => {
-    return { state };
+export default connect(({ results }) => {
+    return { results };
 }, actions)(RestaurantResults);

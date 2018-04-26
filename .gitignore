@@ -1,5 +1,5 @@
 .DS_Store
-pg/config.js
 node_modules
 build
 *.log
+google-api-key.js
