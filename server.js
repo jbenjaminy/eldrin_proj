@@ -4,9 +4,6 @@ const bodyParser = require('body-parser');
 
 const knex = require('./pg/connect');
 
-// const createRestaurant = require('./pg/functions/create-restaurant');
-// const getRestaurants = require('./pg/functions/get-restaurants');
-
 const app = express();
 const jsonParser = bodyParser.json();
 const HOST = process.env.HOST;
@@ -21,11 +18,10 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.get('/restaurants/:latitude/:longitude', (req, res) => {
     const latitude = req.params.latitude;
     const longitude = req.params.longitude;
-    
+
     console.log('coordinates, server.js --> ', latitude, longitude);
 
     knex.select()
@@ -39,28 +35,7 @@ app.get('/restaurants/:latitude/:longitude', (req, res) => {
             console.log('err --> ', err);
             res.sendStatus(500);
         });
-    // getRestaurants(coordinates)
-    //     .then(restaurants => {
-    //
-    //         console.log(restaurants);
-    //
-    //         return res.json({ restaurants });
-    //     });
 });
-//
-// app.post('/add-restaurant', (req, res) => {
-//     const restaurantDetails = req.body;
-//
-//     createRestaurant(restaurantDetails)
-//         .then((details, error) => {
-//             if (error) {
-//                 console.error(error);
-//                 return res.sendStatus(500);
-//             }
-//
-//             res.json({ details });
-//         });
-// });
 
 function runServer() {
 	app.listen(PORT, HOST, err => {

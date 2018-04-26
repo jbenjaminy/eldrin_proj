@@ -3,7 +3,6 @@
 import fetch from 'isomorphic-fetch';
 import {
     FETCH_RESTAURANTS_SUCCESS,
-    ADD_RESTAURANT_SUCCESS,
     MATCH_SUGGESTIONS,
     UPDATE_INPUT
     // FETCH_LOCATION
@@ -28,22 +27,6 @@ export const fetchRestaurants = (coordinates) => dispatch => (
     }).catch(err => console.log(err))
 );
 
-export const addRestaurant = (details) => dispatch => (
-    fetch('/add-restaurant', {
-        method: "POST",
-        body: JSON.stringify(details)
-    }).then(res => {
-		if (!res.ok) throw (new Error(res.statusText));
-		return res.json();
-	}).then(data => {
-		dispatch({
-            type: ADD_RESTAURANT_SUCCESS,
-            data
-        });
-    }).catch(err => console.log(err))
-);
-
-
 export const matchSuggestions = (data) => dispatch => (
 	dispatch({
         type: MATCH_SUGGESTIONS,
@@ -57,25 +40,3 @@ export const updateInput = (data) => dispatch => (
         data
     })
 );
-
-//
-// export const fetchLocation = () => {
-//   const geolocation = navigator.geolocation;
-//
-//   const location = new Promise((resolve, reject) => {
-//     if (!geolocation) {
-//       reject(new Error('Not Supported'));
-//     }
-//
-//     geolocation.getCurrentPosition((position) => {
-//       resolve(position);
-//     }, () => {
-//       reject (new Error('Permission denied'));
-//     });
-//   });
-//
-//   return {
-//     type: FETCH_LOCATION,
-//     data: location
-//   }
-// };
