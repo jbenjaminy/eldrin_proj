@@ -1,8 +1,22 @@
 /* eslint arrow-body-style: 0 */
 const express = require('express');
 const bodyParser = require('body-parser');
+const unirest = require('unirest');
+const events = require('events');
 
 const knex = require('./pg/connect');
+
+const googleGeolocationApi = (endpoint, args) => {
+    const emitter = new events.EventEmitter();
+
+    unirest.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${endpoint}`)
+        .qs(args)
+        .end(response => {
+            if (response.ok) emitter.emit('end', response.body);
+            else emitter.emit('error', response.code);
+        });
+    return emitter;
+};
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -35,6 +49,18 @@ app.get('/restaurants/:latitude/:longitude', (req, res) => {
             console.log('err --> ', err);
             res.sendStatus(500);
         });
+});
+
+app.get('/location/:apiKey', (req, res) => {
+    const apiKey = req.params.apiKey;
+
+    const getCoordinates = googleGeolocationApi(apiKey, {});
+
+    getCoordinates.on('end', (coordinates) => {
+        console.log('coordinates --> ', coordinates);
+
+        res.json(coordinates);
+    });
 });
 
 function runServer() {

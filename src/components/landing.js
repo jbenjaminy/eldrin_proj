@@ -8,12 +8,16 @@ import { browserHistory } from 'react-router';
 import * as actions from '../actions';
 // import Input from './input';
 import Location from './location';
+import apiKey from '../../google-api-key';
+
+console.log('apiKey --> ', apiKey);
 
 class Landing extends Component {
 	constructor() {
 		super();
-		this.submitLocation = this.submitLocation.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
+		this.getCoordinates = this.getCoordinates.bind(this);
+		this.submitLocation = this.submitLocation.bind(this);
 	}
 
 	onInputChange(event) {
@@ -35,10 +39,19 @@ class Landing extends Component {
 			});
 		} else {
 			searchSuggestions = [];
-    }
+		}
 
-	matchSuggestions(searchSuggestions);
-}
+		matchSuggestions(searchSuggestions);
+	}
+
+	getCoordinates(event) {
+		event.preventDefault();
+
+		const { fetchLocation, updateInput } = this.props;
+
+		fetchLocation(apiKey);
+		updateInput('current location');
+	}
 
 	submitLocation(event) {
 		event.preventDefault();
@@ -82,7 +95,7 @@ class Landing extends Component {
 					onClick={this.submitLocation}
 				><p className='fa fa-search fa-2x' /></button></div>
 
-				<button className='current-location'>
+				<button className='current-location' onClick={this.getCoordinates}>
 					Use your current location
 				</button>
 

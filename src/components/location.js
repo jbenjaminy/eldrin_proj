@@ -11,6 +11,7 @@ class Location extends Component {
 
         updateInput(location);
     }
+    
     render() {
         const { index, location } = this.props;
 
