@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { browserHistory } from 'react-router';
+
 import * as actions from '../actions';
 // import Input from './input';
 import Location from './location';
@@ -42,9 +44,12 @@ class Landing extends Component {
 		event.preventDefault();
 
 		const { fetchRestaurants } = this.props;
-		const coordinates = this.location.value;
+		const coordinates = this.refs.location.value;
+
 		console.log('coordinates --> ', coordinates);
+
 		fetchRestaurants({ coordinates });
+		browserHistory.push('/restaurants');
 	}
 	// Google Distance Matrix
 	// https://developers.google.com/maps/documentation/distance-matrix/intro
@@ -70,6 +75,7 @@ class Landing extends Component {
 					onChange={this.onInputChange}
 					value={input}
 					required
+					ref={'location'}
 				/><button
 					className='submit-button'
 					type='button'

@@ -10,7 +10,7 @@ import {
 } from 'react-router';
 import store from './store';
 import Landing from './components/landing';
-// import RestaurantResults from './components/restaurant-results';
+import RestaurantResults from './components/restaurant-results';
 // import RestaurantDetails from './components/restaurant-details';
 
 const App = (props) => {
@@ -31,17 +31,15 @@ const App = (props) => {
 
 const routes = (
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
-            {/*
-                <Route path="/restaurants">
-                    <IndexRoute component={RestaurantResults} />
-
-                    <Route path=":name">
-                        <IndexRoute component={RestaurantDetails} />
-                    </Route>
+        <Route path='/' component={App}>
+            <Route path='/restaurants'>
+                <IndexRoute component={RestaurantResults} />
+                {/*
+                <Route path=':name'>
+                    <IndexRoute component={RestaurantDetails} />
                 </Route>
+                */}
             </Route>
-                    */}
         </Route>
     </Router>
 );
