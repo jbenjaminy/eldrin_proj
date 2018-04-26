@@ -1,9 +1,6 @@
 import { FETCH_LOCATION_SUCCESS } from '../actions/types';
 
-const INITIAL_STATE = {
-        latitude: null,
-        longitude: null
-};
+const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {

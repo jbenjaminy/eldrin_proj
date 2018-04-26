@@ -1,4 +1,5 @@
 /* eslint arrow-body-style: 0 */
+/* eslint max-len: 0 */
 const express = require('express');
 const bodyParser = require('body-parser');
 const unirest = require('unirest');
@@ -6,10 +7,10 @@ const events = require('events');
 
 const knex = require('./pg/connect');
 
-const googleGeolocationApi = (endpoint, args) => {
+const googleDistanceMatrix = (endpoint, args) => {
     const emitter = new events.EventEmitter();
 
-    unirest.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${endpoint}`)
+    unirest.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&${endpoint}`)
         .qs(args)
         .end(response => {
             if (response.ok) emitter.emit('end', response.body);
@@ -32,35 +33,48 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/restaurants/:latitude/:longitude', (req, res) => {
-    const latitude = req.params.latitude;
-    const longitude = req.params.longitude;
+app.get('/restaurants/:origins/:distanceApiKey', (req, res) => {
+    // const origins = req.params.origins;
+    const origins = '17.613633,121.730554';
+    const distanceApiKey = req.params.distanceApiKey;
 
-    console.log('coordinates, server.js --> ', latitude, longitude);
+    console.log('origins, server.js --> ', origins);
+    console.log('distanceApiKey, server.js --> ', distanceApiKey);
 
     knex.select()
         .from('restaurants')
         .then(restaurants => {
             console.log('restaurants --> ', restaurants);
+            let destinations = '';
 
-            res.json(restaurants);
+            restaurants.forEach(restaurant => {
+                const { latitude, longitude } = restaurant;
+
+                destinations = `${destinations}|${latitude},${longitude}`;
+            });
+
+            const endpoint = `origins=${origins}&destinations=${destinations}&key=${distanceApiKey}`;
+
+            const getDistances = googleDistanceMatrix(endpoint, {});
+
+            getDistances.on('end', (output) => {
+                console.log('distance matrix output --> ', output);
+                const distances = output.rows[0].elements;
+
+                const updatedRestaurants = restaurants.map((restaurant, index) => {
+                    const distance = distances[index].distance.text;
+                    const duration = distances[index].duration.text;
+
+                    return { ...restaurant, distance, duration };
+                });
+
+                res.json(updatedRestaurants);
+            });
         })
         .catch(err => {
             console.log('err --> ', err);
             res.sendStatus(500);
         });
-});
-
-app.get('/location/:apiKey', (req, res) => {
-    const apiKey = req.params.apiKey;
-
-    const getCoordinates = googleGeolocationApi(apiKey, {});
-
-    getCoordinates.on('end', (coordinates) => {
-        console.log('coordinates --> ', coordinates);
-
-        res.json(coordinates);
-    });
 });
 
 function runServer() {

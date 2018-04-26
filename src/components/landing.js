@@ -6,11 +6,9 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import * as actions from '../actions';
-// import Input from './input';
 import Location from './location';
-import apiKey from '../../google-api-key';
-
-console.log('apiKey --> ', apiKey);
+import geolocationApiKey from '../../geolocation-api-key';
+import distanceApiKey from '../../distance-matrix-api-key';
 
 class Landing extends Component {
 	constructor() {
@@ -49,22 +47,26 @@ class Landing extends Component {
 
 		const { fetchLocation, updateInput } = this.props;
 
-		fetchLocation(apiKey);
+		fetchLocation(geolocationApiKey);
 		updateInput('current location');
 	}
 
 	submitLocation(event) {
 		event.preventDefault();
 
-		const { fetchRestaurants } = this.props;
-		// const coordinates = this.refs.location.value;
-		const coordinates = { latitude: '17.613633', longitude: '121.730554' };
+		const { fetchRestaurants, coordinates, input } = this.props;
 
-		fetchRestaurants(coordinates);
+		let origins = input.split(' ').join('+');
+		console.log('origins --> ', origins);
+
+		if (coordinates !== {}) {
+			origins = `${coordinates.latitude},${coordinates.longitude}`;
+		}
+
+		fetchRestaurants({ origins, distanceApiKey });
+
 		browserHistory.push('/restaurants');
 	}
-	// Google Distance Matrix
-	// https://developers.google.com/maps/documentation/distance-matrix/intro
 
 	render() {
 		const { suggestions, input } = this.props;
@@ -109,7 +111,8 @@ class Landing extends Component {
 	}
 }
 
-export default connect(({ app, cities }) => {
+export default connect(({ app, cities, coordinates }) => {
 	const { suggestions, input } = app;
-	return { suggestions, input, cities };
+
+	return { suggestions, input, cities, coordinates };
 }, actions)(Landing);

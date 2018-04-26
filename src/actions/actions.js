@@ -5,12 +5,11 @@ import {
     FETCH_RESTAURANTS_SUCCESS,
     FETCH_LOCATION_SUCCESS,
     MATCH_SUGGESTIONS,
-    UPDATE_INPUT,
-    FETCH_DISTANCE_SUCCESS
+    UPDATE_INPUT
 } from './types';
 
-export const fetchRestaurants = (coordinates) => dispatch => (
-	fetch(`/restaurants/${coordinates.latitude}/${coordinates.longitude}`, {
+export const fetchRestaurants = ({ origins, distanceApiKey }) => dispatch => (
+	fetch(`/restaurants/${origins}/${distanceApiKey}`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -46,29 +45,6 @@ export const fetchLocation = (apiKey) => dispatch => (
 
 		dispatch({
             type: FETCH_LOCATION_SUCCESS,
-            data: { latitude, longitude }
-        });
-    }).catch(err => console.log(err))
-);
-
-export const fetchDistance = ({ origins, destinations, apiKey }) => dispatch => (
-	fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origins}&destinations=${destinations}&key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    }).then(res => {
-            console.log('res --> ', res);
-            if (!res.ok) throw (new Error(res.statusText));
-            return res.json();
-    }).then(data => {
-        console.log('coords data --> ', data);
-        const latitude = data.location.lat;
-        const longitude = data.location.lng;
-
-		dispatch({
-            type: FETCH_DISTANCE_SUCCESS,
             data: { latitude, longitude }
         });
     }).catch(err => console.log(err))
