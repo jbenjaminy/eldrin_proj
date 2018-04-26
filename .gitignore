@@ -3,3 +3,4 @@ node_modules
 build
 *.log
 google-api-key.js
+pg-queries.md

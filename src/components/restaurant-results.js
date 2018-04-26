@@ -10,7 +10,7 @@ class RestaurantResults extends Component {
 		const { results } = this.props;
 		const renderedResults = results.map(result => {
 			const {
-				id,
+				// id,
 				name,
 				// hours,
 				// phone,
@@ -28,7 +28,8 @@ class RestaurantResults extends Component {
 
 			return (
 				<div className='modal result-item'>
-					<img src={`${id}.jpg`} alt={`${name}`} className='result-image result-col' />
+					{/* <img src={`${id}.jpg`} alt={`${name}`} className='result-image result-col' /> */}
+					<img src='1.jpg' alt={`${name}`} className='result-image result-col' />
 
 					<div className='result-col'>
 						<h2>{name}</h2>
@@ -37,7 +38,7 @@ class RestaurantResults extends Component {
 						<p className='result-spec'>{city}, {region}, {country}</p>
 					</div>
 
-					<div className='result-col'>
+					<div className='result-col distance-col'>
 						<h1 className='distance'>{distance} km</h1>
 					</div>
 				</div>
