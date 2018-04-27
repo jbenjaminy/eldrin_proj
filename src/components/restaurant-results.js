@@ -22,9 +22,9 @@ class RestaurantResults extends Component {
 				country,
 				// latitude,
 				// longitude,
+				distance,
+				duration
 			} = result;
-
-			const distance = '';
 
 			return (
 				<div className='modal result-item'>
@@ -39,7 +39,8 @@ class RestaurantResults extends Component {
 					</div>
 
 					<div className='result-col distance-col'>
-						<h1 className='distance'>{distance} km</h1>
+						<h1 className='distance'>{distance}</h1>
+						<p className='result-spec neighborhood duration'>{duration} driving</p>
 					</div>
 				</div>
 			);

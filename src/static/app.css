@@ -34,6 +34,7 @@ h2 {
     font-size: 30px;
     line-height: 5px;
     padding-bottom: 0px;
+    text-shadow: 1px 1px #944743;
 }
 
 h2:hover {
@@ -188,14 +189,19 @@ input:required {
 }
 
 .distance {
-    font-size: 35px;
-    /* float: right;
-    text-align: right;
-    width: 150px;
-    margin-left: 50px; */
+    font-size: 30px;
+    line-height: 30px;
+    padding: 10px;
+    padding-top: 50px;
+    padding-bottom: 0px;
 }
+
 .distance-col {
      text-align: right;
      float: right;
      padding-right: 25px;
+}
+
+.duration {
+    padding: 10px
 }

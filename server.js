@@ -63,12 +63,17 @@ app.get('/restaurants/:origins/:distanceApiKey', (req, res) => {
 
                 const updatedRestaurants = restaurants.map((restaurant, index) => {
                     const distance = distances[index].distance.text;
+                    const distanceVal = distances[index].distance.value;
                     const duration = distances[index].duration.text;
 
-                    return { ...restaurant, distance, duration };
+                    return { ...restaurant, distance, distanceVal, duration };
                 });
 
-                res.json(updatedRestaurants);
+                const sortedRestaurants = updatedRestaurants.sort((a, b) => {
+                    return a.distanceVal - b.distanceVal;
+                });
+
+                res.json(sortedRestaurants);
             });
         })
         .catch(err => {
