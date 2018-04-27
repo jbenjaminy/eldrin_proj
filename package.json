@@ -9,7 +9,7 @@
     "watch": "npm run build && run-p watch:*",
     "watch:copy": "chokidar \"src/static/*\" -c \"cp {path} build/\"",
     "watch:js": "webpack --watch",
-    "watch:server": "nodemon -w server.js server.js -x \"npm run\"",
+    "watch:server": "node server.js server.js -x \"npm run\"",
     "server.js": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
