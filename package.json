@@ -4,7 +4,7 @@
   "description": "Search for local panciteria shops, filtered by distance from your location.",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "build": "mkdir -p build && cp src/static/* build/ && webpack",
     "watch": "npm run build && run-p watch:*",
     "watch:copy": "chokidar \"src/static/*\" -c \"cp {path} build/\"",
