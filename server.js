@@ -34,8 +34,8 @@ app.use((req, res, next) => {
 });
 
 app.get('/restaurants/:origins/:distanceApiKey', (req, res) => {
-    // const origins = req.params.origins;
-    const origins = '17.613633,121.730554';
+    const origins = req.params.origins;
+    // const origins = '17.613633,121.730554';
     const distanceApiKey = req.params.distanceApiKey;
 
     console.log('origins, server.js --> ', origins);
