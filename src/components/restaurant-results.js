@@ -1,14 +1,16 @@
 /* eslint max-len: 0 */
 /* eslint arrow-body-style: 0 */
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
+
+import { Link } from 'react-router';
+
 import * as actions from '../actions';
 
 class RestaurantResults extends Component {
 	render() {
 		const { results } = this.props;
-		const renderedResults = results.map(result => {
+		const renderedResults = results.map((result, index) => {
 			const {
 				// id,
 				name,
@@ -27,12 +29,12 @@ class RestaurantResults extends Component {
 			} = result;
 
 			return (
-				<div className='modal result-item'>
+				<div className='modal result-item' key={`result_${index}`}>
 					{/* <img src={`${id}.jpg`} alt={`${name}`} className='result-image result-col' /> */}
 					<img src='1.jpg' alt={`${name}`} className='result-image result-col' />
 
 					<div className='result-col'>
-						<h2>{name}</h2>
+						<h2><Link to={`/restaurants/${index}`}>{name}</Link></h2>
 						<p className='result-spec neighborhood'>{neighborhood}</p>
 						<p className='result-spec'>{address}</p>
 						<p className='result-spec'>{city}, {region}, {country}</p>

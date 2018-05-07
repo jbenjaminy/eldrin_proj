@@ -11,7 +11,7 @@ import {
 import store from './store';
 import Landing from './components/landing';
 import RestaurantResults from './components/restaurant-results';
-// import RestaurantDetails from './components/restaurant-details';
+import RestaurantDetails from './components/restaurant-details';
 
 const App = (props) => {
     let children = props.children;
@@ -34,11 +34,9 @@ const routes = (
         <Route path='/' component={App}>
             <Route path='/restaurants'>
                 <IndexRoute component={RestaurantResults} />
-                {/*
-                <Route path=':name'>
+                <Route path='/restaurants/:id'>
                     <IndexRoute component={RestaurantDetails} />
                 </Route>
-                */}
             </Route>
         </Route>
     </Router>
