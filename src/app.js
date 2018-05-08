@@ -22,7 +22,8 @@ const App = (props) => {
 
     return (
         <div className='background'>
-            <h1>PancEATeria</h1>
+            //<h1>PancEATeria</h1>
+            <img src="https://i.imgur.com/XXjcCnu.png" />
 
             {children}
         </div>
