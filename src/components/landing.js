@@ -59,8 +59,8 @@ class Landing extends Component {
 		let origins = input.split(' ').join('+');
 
 		if (coordinates.latitude && coordinates.longitude) {
-			origins = `${coordinates.latitude},${coordinates.longitude}`;
-			// origins = '17.609984,121.723454';
+			// origins = `${coordinates.latitude},${coordinates.longitude}`;
+			origins = '17.609984,121.723454';
 		}
 
 		console.log('origins, landing.js --> ', origins);

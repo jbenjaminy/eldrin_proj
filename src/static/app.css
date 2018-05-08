@@ -35,6 +35,13 @@ h2 {
     line-height: 5px;
     padding-bottom: 0px;
     text-shadow: 1px 1px #944743;
+    text-decoration: none;
+    font-style: normal;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
 }
 
 h2:hover {
@@ -160,7 +167,7 @@ input:required {
 
 .results-container {
     width: 98%;
-    height: 400px;
+    height: 500px;
     overflow-y: scroll;
     margin: 0 auto;
 }
