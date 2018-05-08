@@ -6,11 +6,11 @@ if (process.env.NODE_ENV === 'production') {
 const knex = require('knex')({
     client: 'pg',
     connection: {
-    host : 'localhost',
-    user : 'admin',
-    password : 'password',
-    database : 'pancit-shops'
-  }
+        host: 'localhost',
+        // user: 'admin',
+        // password: 'password',
+        database: 'pancit-shops'
+    }
 });
 
 module.exports = knex;
