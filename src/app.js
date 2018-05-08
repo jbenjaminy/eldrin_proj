@@ -22,9 +22,12 @@ const App = (props) => {
 
     return (
         <div className='background'>
-            //<h1>PancEATeria</h1>
-            <img src="https://i.imgur.com/XXjcCnu.png" />
-
+            <img
+                src='panceateria-logo.png'
+                alt='PancEATeria | Pancit Store Locator'
+                className='logo'
+            />
+        
             {children}
         </div>
     );

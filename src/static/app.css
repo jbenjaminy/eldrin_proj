@@ -66,10 +66,18 @@ h2:hover {
 }
 
 /*----- LANDING PAGE STYLES -----*/
+.logo {
+    text-align: center;
+    margin: 0px;
+    padding: 40px;
+
+}
+
 .input-div {
     height: 74px;
     margin-top: 50px;
 }
+
 .input {
     width: 350px;
     padding: 25px;
