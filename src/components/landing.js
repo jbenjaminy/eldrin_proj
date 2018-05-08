@@ -57,11 +57,13 @@ class Landing extends Component {
 		const { fetchRestaurants, coordinates, input } = this.props;
 
 		let origins = input.split(' ').join('+');
-		console.log('origins --> ', origins);
 
 		if (coordinates.latitude && coordinates.longitude) {
 			origins = `${coordinates.latitude},${coordinates.longitude}`;
+			// origins = '17.609984,121.723454';
 		}
+
+		console.log('origins, landing.js --> ', origins);
 
 		fetchRestaurants({ origins, distanceApiKey });
 
