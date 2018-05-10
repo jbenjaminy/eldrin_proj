@@ -7,8 +7,8 @@ const knex = require('knex')({
     client: 'pg',
     connection: {
         host: 'localhost',
-        // user: 'admin',
-        // password: 'password',
+        user: 'admin',
+        password: 'password',
         database: 'pancit-shops'
     }
 });

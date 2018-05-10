@@ -48,7 +48,7 @@ class Landing extends Component {
 		const { fetchLocation, updateInput } = this.props;
 
 		fetchLocation(geolocationApiKey);
-		updateInput('current location');
+		updateInput('Location detected!');
 	}
 
 	submitLocation(event) {
@@ -59,8 +59,8 @@ class Landing extends Component {
 		let origins = input.split(' ').join('+');
 
 		if (coordinates.latitude && coordinates.longitude) {
-			origins = `${coordinates.latitude},${coordinates.longitude}`;
-			// origins = '17.609984,121.723454';
+			// origins = `${coordinates.latitude},${coordinates.longitude}`;
+			origins = '17.609984,121.723454';
 		}
 
 		console.log('origins, landing.js --> ', origins);
@@ -74,7 +74,7 @@ class Landing extends Component {
 		const { suggestions, input } = this.props;
 
 		const locations = suggestions.map((location, index) => {
-			if (index < 5) {
+			if (index < 4) {
 				return <Location location={location} key={index} />;
 			}
 
@@ -99,8 +99,9 @@ class Landing extends Component {
 					onClick={this.submitLocation}
 				><p className='fa fa-search fa-2x' /></button></div>
 
+				<br />
 				<button className='current-location' onClick={this.getCoordinates}>
-					Use your current location
+					Or use your current location
 				</button>
 
 				{ (locations.length) ?

@@ -10,6 +10,7 @@ body {
     height: 100%;
     font-family: 'Alegreya Sans';
     font-size: 18px;
+    overflow-y: hidden;
 }
 
 #app {
@@ -146,7 +147,7 @@ input:required {
 }
 
 .location-modal {
-    height: 210px;
+    height: 170px;
 }
 
 /*----- RESULTS PAGE STYLES -----*/
@@ -160,7 +161,7 @@ input:required {
 
 .results-container {
     width: 98%;
-    height: 400px;
+    height: 360px;
     overflow-y: scroll;
     margin: 0 auto;
 }
