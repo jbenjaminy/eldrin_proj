@@ -1,5 +1,4 @@
 /* eslint max-len: 0 */
-/* eslint no-undef: 0 */
 /* eslint arrow-body-style: 0 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -13,46 +12,26 @@ class RestaurantResults extends Component {
 		const { results } = this.props;
 		const renderedResults = results.map((result, index) => {
 			const {
+				// id,
 				name,
+				// hours,
+				// phone,
+				// website,
 				neighborhood,
 				address,
 				city,
 				region,
 				country,
+				// latitude,
+				// longitude,
 				distance,
 				duration
 			} = result;
 
-			const formattedName = name.toLowerCase()
-				.split('’')
-				.join('')
-				.split(' ')
-				.join('-');
-
-			const availableImages = [
-				'cherrys-pansiteria',
-				'fefang-pancitera',
-				'gretchens-noodle-haus',
-				'jomars-panciteria',
-				'nangs-panciteria',
-				'triple-j-panciteria'
-			];
-
-			let imageSrc = 'generic-thumbnail';
-
-			availableImages.forEach(imageName => {
-				if (formattedName === imageName) {
-					imageSrc = formattedName;
-				}
-			});
-
 			return (
 				<div className='modal result-item' key={`result_${index}`}>
-					<img
-						src={`${imageSrc}.jpg`}
-						alt={`${name}`}
-						className='result-image result-col'
-					/>
+					{/* <img src={`${id}.jpg`} alt={`${name}`} className='result-image result-col' /> */}
+					<img src='1.jpg' alt={`${name}`} className='result-image result-col' />
 
 					<div className='result-col'>
 						<h2><Link to={`/restaurants/${index}`}>{name}</Link></h2>
