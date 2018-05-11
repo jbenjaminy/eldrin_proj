@@ -56,9 +56,13 @@ class RestaurantResults extends Component {
 
 					<div className='result-col'>
 						<h2><Link to={`/restaurants/${index}`}>{name}</Link></h2>
+
 						<p className='result-spec neighborhood'>{neighborhood}</p>
-						<p className='result-spec'>{address}</p>
-						<p className='result-spec'>{city}, {region}, {country}</p>
+
+						<ul className='output'>
+							<li className='item'><p className='result-spec'>{address}</p></li>
+							<li className='item'><p className='result-spec'>{city}, {region}, {country}</p></li>
+						</ul>
 					</div>
 
 					<div className='result-col distance-col'>

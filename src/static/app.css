@@ -10,6 +10,7 @@ body {
     height: 100%;
     font-family: 'Alegreya Sans';
     font-size: 18px;
+    color: #282828;
 }
 
 #app {
@@ -77,7 +78,6 @@ h2:hover {
     text-align: center;
     margin: 0px;
     padding: 40px;
-
 }
 
 .input-div {
@@ -114,11 +114,11 @@ input:required {
     background-color: darkgrey;
 }
 
-.location-output {
+.output {
     padding: 0;
 }
 
-.location-item {
+.item {
     list-style-type: none;
 }
 
@@ -170,6 +170,7 @@ input:required {
     height: 500px;
     overflow-y: scroll;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 .result-item {
@@ -177,14 +178,15 @@ input:required {
     height: 150px;
     margin-bottom: 10px;
     text-align: left;
+    padding-bottom: 20px;
 }
 
 .result-image {
-    height: 90%;
-    width: auto;
+    height: 135px;
+    width: 135px;
     margin-left: 10px;
     margin-right: 25px;
-    padding-top: 7.5px;
+    padding-top: 17.5px;
 }
 
 .result-col {
@@ -194,13 +196,11 @@ input:required {
 .result-spec {
     margin: 0;
     padding: 0px;
-    padding-bottom: 10px;
 }
 
 .neighborhood {
     font-style: italic;
     font-size: 15px;
-    padding-bottom: 20px;
 }
 
 .distance {
@@ -219,4 +219,44 @@ input:required {
 
 .duration {
     padding: 10px
+}
+
+/*----- RESULT DETAILS STYLES -----*/
+.details {
+    width: 85%;
+    height: 300px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.result-image-lg {
+    height: 200px;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 25px;
+    padding-top: 7.5px;
+}
+
+.menu-item {
+    font-size: 22px;
+    font-family: 'Libre Baskerville', serif;
+    font-style: bold;
+}
+
+.menu-item-price: {
+    font-size: 18px;
+    font-family: 'Alegreya Sans';
+    font-style: italic;
+}
+
+.margin {
+    margin-top: 20px;
+}
+
+.no-hover-effect:hover {
+    color: #282828;
+}
+
+.buffer {
+    height: 10px;
 }

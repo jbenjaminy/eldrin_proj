@@ -105,7 +105,7 @@ class Landing extends Component {
 
 				{ (locations.length) ?
 					<div className='modal location-modal'>
-						<ul className='location-output'>{locations}</ul>
+						<ul className='output'>{locations}</ul>
 					</div> : null
 				}
 			</div>

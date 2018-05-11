@@ -11,12 +11,12 @@ class Location extends Component {
 
         updateInput(location);
     }
-    
+
     render() {
         const { index, location } = this.props;
 
         return (
-            <li className='location-item' key={`location_${index}`} >
+            <li className='item' key={`location_${index}`} >
                 <button className='location-button' onClick={this.populateInput.bind(this, location)}>
                     {location}
                 </button>
