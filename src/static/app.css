@@ -10,11 +10,8 @@ body {
     height: 100%;
     font-family: 'Alegreya Sans';
     font-size: 18px;
-<<<<<<< HEAD
     color: #282828;
-=======
     overflow-y: hidden;
->>>>>>> d14130d43dbea7a9afa1703726efc3f73b1cf623
 }
 
 #app {
@@ -171,11 +168,7 @@ input:required {
 
 .results-container {
     width: 98%;
-<<<<<<< HEAD
-    height: 360px;
-=======
-    height: 500px;
->>>>>>> 47b89ed6e4792c938d030966040f3cbec6e008b3
+    height: 400px;
     overflow-y: scroll;
     margin: 0 auto;
     padding-bottom: 20px;
@@ -226,7 +219,7 @@ input:required {
 }
 
 .duration {
-    padding: 10px
+    padding: 10px;
 }
 
 /*----- RESULT DETAILS STYLES -----*/
@@ -237,12 +230,19 @@ input:required {
     text-align: left;
 }
 
+.col-left {
+    padding-left: 50px;
+}
+
 .result-image-lg {
     height: 200px;
     width: 200px;
-    margin-left: 10px;
-    margin-right: 25px;
-    padding-top: 7.5px;
+    margin-right: 50px;
+    box-shadow: 2px 5px #DDDDDD;
+}
+
+.result-image-lg:hover {
+    box-shadow: 2px 5px #EC9787;
 }
 
 .menu-item {
@@ -251,7 +251,7 @@ input:required {
     font-style: bold;
 }
 
-.menu-item-price: {
+.menu-item-price {
     font-size: 18px;
     font-family: 'Alegreya Sans';
     font-style: italic;
@@ -267,4 +267,12 @@ input:required {
 
 .buffer {
     height: 10px;
+}
+
+.buffer-lg {
+    height: 124px;
+}
+
+.subheader {
+    text-decoration: underline;
 }
