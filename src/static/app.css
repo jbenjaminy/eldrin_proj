@@ -231,14 +231,18 @@ input:required {
 }
 
 .col-left {
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
 .result-image-lg {
     height: 200px;
     width: 200px;
-    margin-right: 50px;
+    margin-right: 20px;
     box-shadow: 2px 5px #DDDDDD;
+}
+
+.map-image {
+    margin: 20px;
 }
 
 .result-image-lg:hover {
@@ -270,9 +274,22 @@ input:required {
 }
 
 .buffer-lg {
-    height: 124px;
+    height: 50px;
 }
 
 .subheader {
     text-decoration: underline;
+}
+
+.sub-col {
+    display: inline-block;
+}
+
+.menu-col {
+    margin-left: -40px;
+}
+
+.map-col {
+    text-align: right;
+    float: right;
 }

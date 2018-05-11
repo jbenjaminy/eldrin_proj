@@ -50,13 +50,15 @@ class RestaurantDetails extends Component {
 
         const urls = {
             'fefang-pancitera': {
-                map: 'https://www.google.com/maps/place/25+Lecaros+St,+Tuguegarao,+Cagayan,+Philippines/@17.6091626,121.7241511,17z/data=!3m1!4b1!4m5!3m4!1s0x3385842f40c919f9:0x5e48fb2aa3b4aa!8m2!3d17.6091626!4d121.7263451',
-                thumbnail: 'http://i.imgur.com/Q708JxG.png'
+                thumbnail: 'http://i.imgur.com/3X8YJxv.png',
+                map_thumbnail: 'http://i.imgur.com/Q708JxG.png',
+                map: 'https://www.google.com/maps/place/25+Lecaros+St,+Tuguegarao,+Cagayan,+Philippines/@17.6091626,121.7241511,17z/data=!3m1!4b1!4m5!3m4!1s0x3385842f40c919f9:0x5e48fb2aa3b4aa!8m2!3d17.6091626!4d121.7263451'
             }
         };
 
-        const mapUrl = urls[imageSrc].map;
         const thumbnailUrl = urls[imageSrc].thumbnail;
+        const mapThumbnailUrl = urls[imageSrc].map_thumbnail;
+        const mapUrl = urls[imageSrc].map;
 
         return (
             <div className='results-container'>
@@ -66,14 +68,14 @@ class RestaurantDetails extends Component {
 
                         <h2 className='no-hover-effect'>{name}</h2>
 
-                        <a href={mapUrl}><img
+                        <img
                             src={thumbnailUrl}
                             alt={`${name}`}
                             className='result-image-lg'
-                        /></a>
+                        />
                     </div>
 
-					<div className='result-col'>
+					<div className='result-col menu-col'>
                         <h3 className='subheader'>Menu</h3>
 
                         <ul>
@@ -83,23 +85,36 @@ class RestaurantDetails extends Component {
                         </ul>
 					</div>
 
-					<div className='result-col distance-col'>
+					<div className='result-col map-col'>
 
                         <div className='buffer-lg' />
 
-                        <h3 className='subheader margin'>Location</h3>
+                        <div className='sub-col'>
+                            <h3 className='subheader margin'>Location</h3>
 
-                        <ul className='output'>
-                            <li className='item'><p className='result-spec'>{address}</p></li>
-                            <li className='item'><p className='result-spec'>{city}, {region}, {country}</p></li>
-                        </ul>
+                            <ul className='output'>
+                                <li className='item'><p className='result-spec'>{address}</p></li>
+                                <li className='item'><p className='result-spec'>{city}</p></li>
+                                <li className='item'><p className='result-spec'>{region}, {country}</p></li>
+                            </ul>
 
-                        <ul className='output'>
-                            <li className='item'><p className='result-spec neighborhood'>{neighborhood}</p></li>
-                            <li className='item'><p className='result-spec neighborhood'>{distance}</p></li>
-                            <li className='item'><p className='result-spec neighborhood'>{duration} driving</p></li>
-                        </ul>
+                            <ul className='output'>
+                                <li className='item'><p className='result-spec neighborhood'>{neighborhood}</p></li>
+                                <li className='item'><p className='result-spec neighborhood'>{distance}</p></li>
+                                <li className='item'><p className='result-spec neighborhood'>{duration} driving</p></li>
+                            </ul>
+                        </div>
+
+                        <div className='sub-col'>
+                            <a href={mapUrl}><img
+                                src={mapThumbnailUrl}
+                                alt={`${name}`}
+                                className='result-image-lg map-image'
+                            /></a>
+                        </div>
 					</div>
+
+
 				</div>
             </div>
 		);
