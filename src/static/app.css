@@ -50,6 +50,14 @@ h2:hover {
     color: #EC9787;
 }
 
+.white {
+    color: white;
+}
+
+.white:hover {
+    color: white;
+}
+
 .background {
     /* path to background image */
     /* background-image: url('paciteria_background.jpg'); */
@@ -79,6 +87,18 @@ h2:hover {
     text-align: center;
     margin: 0px;
     padding: 40px;
+}
+
+.results-logo {
+    float: left;
+    margin: 0px;
+    padding: 20px;
+    width: 400px;
+    height: auto;
+}
+
+.results-logo:hover {
+    box-shadow: 2px 5px #EC9787;
 }
 
 .input-div {
@@ -168,7 +188,7 @@ input:required {
 
 .results-container {
     width: 98%;
-    height: 400px;
+    height: 500px;
     overflow-y: scroll;
     margin: 0 auto;
     padding-bottom: 20px;

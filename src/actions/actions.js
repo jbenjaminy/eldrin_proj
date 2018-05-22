@@ -5,7 +5,9 @@ import {
     FETCH_RESTAURANTS_SUCCESS,
     FETCH_LOCATION_SUCCESS,
     MATCH_SUGGESTIONS,
-    UPDATE_INPUT
+    UPDATE_INPUT,
+    UPDATE_LOCATION,
+    RESET_APP_STATE
 } from './types';
 
 export const fetchRestaurants = ({ origins, distanceApiKey }) => dispatch => (
@@ -61,5 +63,18 @@ export const updateInput = (data) => dispatch => (
 	dispatch({
         type: UPDATE_INPUT,
         data
+    })
+);
+
+export const updateLocation = (data) => dispatch => (
+	dispatch({
+        type: UPDATE_LOCATION,
+        data
+    })
+);
+
+export const resetAppState = () => dispatch => (
+	dispatch({
+        type: RESET_APP_STATE
     })
 );

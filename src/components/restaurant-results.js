@@ -10,7 +10,10 @@ import * as actions from '../actions';
 
 class RestaurantResults extends Component {
 	render() {
-		const { results } = this.props;
+		const { results, location } = this.props;
+
+		const resultsMessage = `Showing results nearby ${location}`;
+
 		const renderedResults = results.map((result, index) => {
 			const {
 				name,
@@ -70,14 +73,19 @@ class RestaurantResults extends Component {
 				</div>
 			);
 		});
+
 		return (
             <div className='results-container'>
+				<h2 className='white'>{resultsMessage}</h2>
+
 				{renderedResults}
             </div>
 		);
 	}
 }
 
-export default connect(({ results }) => {
-    return { results };
+export default connect(({ results, app }) => {
+	const { location } = app;
+
+    return { results, location };
 }, actions)(RestaurantResults);

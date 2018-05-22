@@ -18,16 +18,22 @@ class Landing extends Component {
 		this.submitLocation = this.submitLocation.bind(this);
 	}
 
+	componentWillMount() {
+		const { resetAppState } = this.props;
+
+		resetAppState();
+	}
+
 	onInputChange(event) {
-		const { cities, matchSuggestions, updateInput } = this.props;
+		const { locationSuggestions, matchSuggestions, updateInput } = this.props;
 		const value = event.target.value.toLowerCase();
 		let searchSuggestions;
 
 		updateInput(value);
 
 		if (value.length > 0) {
-			searchSuggestions = cities.filter(city => {
-				const item = city.toLowerCase();
+			searchSuggestions = locationSuggestions.filter(location => {
+				const item = location.toLowerCase();
 				const locationMatch = new RegExp(value);
 
 				if (item.match(locationMatch)) {
@@ -54,17 +60,20 @@ class Landing extends Component {
 	submitLocation(event) {
 		event.preventDefault();
 
-		const { fetchRestaurants, coordinates, input } = this.props;
+		const { fetchRestaurants, coordinates, input, updateLocation } = this.props;
 
+		let location = input;
 		let origins = input.split(' ').join('+');
 
 		if (coordinates.latitude && coordinates.longitude) {
 			// origins = `${coordinates.latitude},${coordinates.longitude}`;
+			location = 'Mabini St, Tuguegarao, Cagayan, Philippines';
 			origins = '17.609984,121.723454';
 		}
 
 		console.log('origins, landing.js --> ', origins);
 
+		updateLocation(location);
 		fetchRestaurants({ origins, distanceApiKey });
 
 		browserHistory.push('/restaurants');
@@ -114,8 +123,8 @@ class Landing extends Component {
 	}
 }
 
-export default connect(({ app, cities, coordinates }) => {
+export default connect(({ app, locationSuggestions, coordinates }) => {
 	const { suggestions, input } = app;
 
-	return { suggestions, input, cities, coordinates };
+	return { suggestions, input, locationSuggestions, coordinates };
 }, actions)(Landing);

@@ -6,7 +6,8 @@ import {
     Route,
     Router,
     IndexRoute,
-    browserHistory
+    browserHistory,
+    Link
 } from 'react-router';
 import store from './store';
 import Landing from './components/landing';
@@ -15,19 +16,23 @@ import RestaurantDetails from './components/restaurant-details';
 
 const App = (props) => {
     let children = props.children;
+    let classes = 'results-logo';
 
     if (props.children === null) {
         children = <Landing />;
+        classes = 'logo';
     }
 
     return (
         <div className='background'>
-            <img
-                src='panceateria-logo.png'
-                alt='PancEATeria | Pancit Store Locator'
-                className='logo'
-            />
-        
+            <Link to={'/'}>
+                <img
+                    src='panceateria-logo.png'
+                    alt='PancEATeria | Pancit Store Locator'
+                    className={classes}
+                />
+            </Link>
+
             {children}
         </div>
     );
