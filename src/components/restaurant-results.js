@@ -10,7 +10,7 @@ import * as actions from '../actions';
 
 class RestaurantResults extends Component {
 	render() {
-		const { results, location } = this.props;
+		const { results, location, urls } = this.props;
 
 		const resultsMessage = `Showing results nearby ${location}`;
 
@@ -32,20 +32,7 @@ class RestaurantResults extends Component {
 				.split(' ')
 				.join('-');
 
-			const urls = {
-				'billy-jacks-panciteria': 'http://i.imgur.com/rHp1pri.jpg',
-				'cherrys-panciteria': 'http://i.imgur.com/7hRX0pZ.jpg',
-				'corazons-panciteria': 'http://i.imgur.com/5Jn810z.jpg',
-				'dings-panciteria': 'http://i.imgur.com/JWtE4vz.jpg',
-				'evas-panciteria': 'http://i.imgur.com/r6Mryu4.jpg',
-				'fefangs-panciteria': 'http://i.imgur.com/OpdAynj.jpg',
-				'macoys-panciteria': 'http://i.imgur.com/aOAeSxq.jpg',
-				'panciteria-ni-nang': 'http://i.imgur.com/XIGp6DZ.jpg',
-				'pancitan-ni-santino': 'http://i.imgur.com/N5t024Y.jpg',
-				'triangle-panciteria': 'http://i.imgur.com/EKNn4BM.jpg',
-			};
-
-			const imageSrc = urls[formattedName];
+			const imageSrc = urls[formattedName].thumbnail;
 
 			return (
 				<div className='modal result-item' key={`result_${index}`}>
@@ -84,8 +71,8 @@ class RestaurantResults extends Component {
 	}
 }
 
-export default connect(({ results, app }) => {
+export default connect(({ results, app, urls }) => {
 	const { location } = app;
 
-    return { results, location };
+    return { results, location, urls };
 }, actions)(RestaurantResults);

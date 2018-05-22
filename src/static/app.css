@@ -248,6 +248,7 @@ input:required {
     height: 450px;
     margin-bottom: 20px;
     text-align: left;
+    overflow-y: scroll;
 }
 
 .col-left {
@@ -284,6 +285,10 @@ input:required {
     font-style: italic;
 }
 
+.menu-item:hover {
+    color: #282828;
+}
+
 .margin {
     margin-top: 20px;
 }
@@ -302,6 +307,7 @@ input:required {
 
 .subheader {
     text-decoration: underline;
+    margin-left: 20px;
 }
 
 .sub-col {
