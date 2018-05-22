@@ -395,37 +395,19 @@ class RestaurantDetails extends Component {
                             alt={`${name}`}
                             className='result-image-lg'
                         />
-                    </div>
 
-					<div className='result-col menu-col'>
-                        <h3 className='subheader'>Menu</h3>
-
-                        <ul>
-                            <li className='menu-item'>"Regular"<span className='menu-item-price'> - 60 PHP</span></li>
-                            <li className='menu-item'>"Special"<span className='menu-item-price'> - 70 PHP</span></li>
-                            <li className='menu-item'>"Super Special"<span className='menu-item-price'> - 80 PHP</span></li>
+                        <ul className='output'>
+                            <li className='item'><p className='result-spec'>{address}, { neighborhood }</p></li>
+                            <li className='item'><p className='result-spec'>{city}, {region}, {country}</p></li>
                         </ul>
-					</div>
+                        <ul className='output'>
+                            <li className='item'><p className='result-spec neighborhood'>{distance} | {duration} driving</p></li>
+                        </ul>
+                    </div>
 
 					<div className='result-col map-col'>
 
                         <div className='buffer-lg' />
-
-                        <div className='sub-col'>
-                            <h3 className='subheader margin'>Location</h3>
-
-                            <ul className='output'>
-                                <li className='item'><p className='result-spec'>{address}</p></li>
-                                <li className='item'><p className='result-spec'>{city}</p></li>
-                                <li className='item'><p className='result-spec'>{region}, {country}</p></li>
-                            </ul>
-
-                            <ul className='output'>
-                                <li className='item'><p className='result-spec neighborhood'>{neighborhood}</p></li>
-                                <li className='item'><p className='result-spec neighborhood'>{distance}</p></li>
-                                <li className='item'><p className='result-spec neighborhood'>{duration} driving</p></li>
-                            </ul>
-                        </div>
 
                         <div className='sub-col'>
                             <a href={mapUrl}><img
@@ -436,6 +418,7 @@ class RestaurantDetails extends Component {
                         </div>
 					</div>
 
+                    <hr className='division' />
 
 				</div>
             </div>

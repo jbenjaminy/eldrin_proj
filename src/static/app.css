@@ -245,7 +245,7 @@ input:required {
 /*----- RESULT DETAILS STYLES -----*/
 .details {
     width: 85%;
-    height: 300px;
+    height: 450px;
     margin-bottom: 20px;
     text-align: left;
 }
@@ -262,7 +262,10 @@ input:required {
 }
 
 .map-image {
+    height: 300px;
+    width: 300px;
     margin: 20px;
+    margin-right: 100px
 }
 
 .map-image:hover {
@@ -294,7 +297,7 @@ input:required {
 }
 
 .buffer-lg {
-    height: 50px;
+    height: 45px;
 }
 
 .subheader {
@@ -312,4 +315,13 @@ input:required {
 .map-col {
     text-align: right;
     float: right;
+}
+
+.division {
+    border: 0;
+    border-top: 1px solid #DDDDDD;
+    margin:1.313rem 0;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
 }
