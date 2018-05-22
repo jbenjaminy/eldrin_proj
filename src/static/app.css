@@ -245,7 +245,7 @@ input:required {
     margin: 20px;
 }
 
-.result-image-lg:hover {
+.map-image:hover {
     box-shadow: 2px 5px #EC9787;
 }
 

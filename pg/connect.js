@@ -1,4 +1,6 @@
+/* eslint no-unused-vars:0 */
 let databaseUrl = process.env.DATABASE_URL || 'postgres://localhost:5432/pancit-shops';
+
 if (process.env.NODE_ENV === 'production') {
     databaseUrl += '?ssl=true';
 }
